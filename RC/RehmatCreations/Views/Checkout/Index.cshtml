@@ -1,0 +1,36 @@
+﻿@model IEnumerable<ProductEntity>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Check Out Page</h1>
+<table class="table table-responsive table-light table-bordered"style="width:100%">
+    <tr>
+        <th>ProductName</th>
+        <th>Title</th>
+        <th>Price</th>
+        <th>Quanity</th>
+        <th>Image</th>
+        <th>Total</th>
+    </tr>
+   @foreach(var item in Model)
+   {
+        <tr>
+            <td>@item.ProductName</td>
+            <td>@item.Title</td>
+            <td>@item.Price</td>
+            <td>@item.Quanity</td>
+            <td><img src="@item.ImagePath" style="width:130px; height:150px;"/></td>
+            <td>@(item.Price * item.Quanity)</td>
+
+        </tr>
+    }
+
+</table>
+<br />
+<p> 
+    <a asp-action="CheckOut" asp-controller="CheckOut" value="CheckOut">CheckOut</a>
+</p>
+
+
+
